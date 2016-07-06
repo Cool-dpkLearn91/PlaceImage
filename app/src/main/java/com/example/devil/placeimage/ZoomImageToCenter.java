@@ -77,7 +77,9 @@ public class ZoomImageToCenter extends FragmentActivity implements View.OnClickL
                 break;
 
             case R.id.iv_expanded:
-                rl2.setAnimation(animation);
+
+                rl2.clearAnimation();
+                rl2.startAnimation(animation);
                 rl2.setVisibility(View.VISIBLE);
                 break;
 
@@ -204,13 +206,15 @@ public class ZoomImageToCenter extends FragmentActivity implements View.OnClickL
         rl2.setVisibility(View.VISIBLE);
         animation  = AnimationUtils.loadAnimation(getBaseContext(),R.anim.fade_in);
         animation2  = AnimationUtils.loadAnimation(getBaseContext(),R.anim.fade_out);
-        rl2.setAnimation(animation);
+        rl2.clearAnimation();
+        rl2.startAnimation(animation);
 
         rl2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rl2.setVisibility(View.GONE);
-                rl2.setAnimation(animation2);
+                rl2.clearAnimation();
+                rl2.startAnimation(animation2);
             }
         });
 

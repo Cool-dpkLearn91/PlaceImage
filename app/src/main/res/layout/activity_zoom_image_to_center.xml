@@ -7,7 +7,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
         
         <ImageView
             android:id="@+id/iv_original"
@@ -33,12 +34,12 @@
         android:id="@+id/rl2"
         android:background="#00000000"
         android:visibility="invisible"
-
         >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#D6DBDF"
             >
 
             <ImageView
