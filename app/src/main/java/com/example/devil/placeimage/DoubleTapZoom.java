@@ -55,6 +55,7 @@ public class DoubleTapZoom extends Activity implements View.OnClickListener {
 
                 File folder = new File("/storage/emulated/0/pichere/");
 
+
                 if (!folder.exists())
                     folder.mkdir();
 

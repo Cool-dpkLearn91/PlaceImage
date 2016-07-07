@@ -22,13 +22,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import it.sephiroth.android.library.imagezoom.ImageViewTouch;
+
 public class ZoomImageToCenter extends FragmentActivity implements View.OnClickListener {
 
     Animator animator;
 
     Animation animation, animation2;
 
-    ImageView shortImage, expandedImage;
+    ImageView shortImage;
+    ImageViewTouch expandedImage;
 
     FrameLayout layout;
 
@@ -52,8 +55,24 @@ public class ZoomImageToCenter extends FragmentActivity implements View.OnClickL
         shortImage = (ImageView) findViewById(R.id.iv_original);
         shortImage.setOnClickListener(this);
 
-        expandedImage = (ImageView) findViewById(R.id.iv_expanded);
+        expandedImage = (ImageViewTouch) findViewById(R.id.iv_expanded);
         expandedImage.setOnClickListener(this);
+
+        expandedImage.setDoubleTapListener(new ImageViewTouch.OnImageViewTouchDoubleTapListener() {
+            @Override
+            public void onDoubleTap() {
+
+            }
+        });
+
+        expandedImage.setSingleTapListener(new ImageViewTouch.OnImageViewTouchSingleTapListener() {
+            @Override
+            public void onSingleTapConfirmed() {
+                rl2.clearAnimation();
+                rl2.startAnimation(animation);
+                rl2.setVisibility(View.VISIBLE);
+            }
+        });
 
         layout = (FrameLayout) findViewById(R.id.container);
 
